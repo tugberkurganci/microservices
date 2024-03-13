@@ -30,12 +30,13 @@ jobs:
           mvn package
           mv target/*.jar app.jar
 
-      - name: Log in to Github Container Registry
-        uses: docker/login-action@v2
-        with:
-          registry: ${{ env.REGISTRY }}
-          username: ${{ github.actor }}
-          password: ${{ secrets.GH_TOKEN }}
+          - name: Log in to Github Container Registry
+            uses: docker/login-action@v2
+              with:
+            registry: ${{ env.REGISTRY }}
+              username: ${{ github.actor }}
+            password: ${{ secrets.GITHUB_TOKEN }}
+
 
       - name: Extract image metadata for ${{ matrix.image_name }}
         id: meta
