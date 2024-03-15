@@ -11,14 +11,21 @@ env:
 jobs:
   setup-postgresql:
     runs-on: ubuntu-latest
+
+    services:
+      postgres:
+        image: postgres:latest
+        env:
+          POSTGRES_PASSWORD: importante
+          POSTGRES_USER: importante
+        ports:
+          - 5432:5432
+        options: --health-cmd pg_isready --health-interval 10s --health-timeout 5s --health-retries 5
+
     steps:
       - name: Checkout Repository
         uses: actions/checkout@v2
 
-      - name: Set up PostgreSQL Database
-        run: |
-          docker run --name my_postgres -e POSTGRES_PASSWORD=${{ secrets.POSTGRES_PASSWORD }} -e POSTGRES_USER=${{ secrets.POSTGRES_USERNAME }} -d postgres:latest
-          sleep 10
   build:
     strategy:
       matrix:
