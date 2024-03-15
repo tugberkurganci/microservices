@@ -37,8 +37,8 @@ jobs:
       - name: Build
         working-directory: ${{ matrix.image_name }}
         run: |
-          ./gradlew bootJar
-          mv build/libs/$(ls build/libs) app.jar
+          mvn package
+          mv target/*.jar app.jar
 
       - name: Log in to Github Container Registry
         uses: docker/login-action@v2
