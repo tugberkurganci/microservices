@@ -28,9 +28,6 @@ jobs:
       - name: Checkout
         uses: actions/checkout@v2
 
-      - name: Wait for PostgreSQL to start
-        run: dockerize -wait tcp://localhost:5432 -timeout 1m
-
       - name: Setup Java
         uses: actions/setup-java@v3
         with:
