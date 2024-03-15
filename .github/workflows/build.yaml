@@ -20,7 +20,7 @@ jobs:
 
       - name: Set up PostgreSQL Database
         run: |
-            docker run --name my_postgres -e POSTGRES_PASSWORD=importante -e POSTGRES_USER=importante -d postgres:latest
+            docker run --name my_postgres -e POSTGRES_PASSWORD=importante -e POSTGRES_USER=importante -p 5432:5432 -d postgres:latest
             sleep 10  
 
       - name: Setup Java
