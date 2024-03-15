@@ -21,7 +21,10 @@ jobs:
       - name: Set up PostgreSQL Database
         run: |
             docker run --name my_postgres -e POSTGRES_PASSWORD=importante -e POSTGRES_USER=importante -p 5432:5432 -d postgres:latest
-            sleep 10  
+            sleep 10 
+
+      - name: Wait for PostgreSQL to start
+        run: dockerize -wait tcp://localhost:5432 -timeout 1m
 
       - name: Setup Java
         uses: actions/setup-java@v3
