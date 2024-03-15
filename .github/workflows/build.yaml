@@ -10,6 +10,7 @@ env:
 
 jobs:
   build-and-deploy:
+    permissions: write-all
     runs-on: ubuntu-latest
 
     services:
@@ -47,7 +48,6 @@ jobs:
           registry: ${{ env.REGISTRY }}
           username: ${{ github.actor }}
           password: ${{ secrets.GITHUB_TOKEN  }}
-          permissions: write-all
 
       - name: Extract image metadata for ${{ matrix.image_name }}
         id: meta
