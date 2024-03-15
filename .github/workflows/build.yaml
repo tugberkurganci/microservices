@@ -9,7 +9,7 @@ env:
   REPO_OWNER: ${{ github.repository_owner }}
 
 jobs:
-  setup-postgresql:
+  build-and-deploy:
     runs-on: ubuntu-latest
 
     services:
