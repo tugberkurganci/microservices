@@ -31,7 +31,6 @@ jobs:
       matrix:
         image_name: [ "order-service", "ship-service", "inventory-service" ]
     runs-on: ubuntu-latest
-    needs: setup-postgresql
 
     steps:
       - name: Checkout
