@@ -80,8 +80,5 @@ jobs:
           secrets: |
             GITHUB_TOKEN=${{ secrets.GH_TOKEN }}
 
-networks:
-  postgres-network:
-    driver: bridge
 
 
