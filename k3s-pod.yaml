@@ -1,0 +1,14 @@
+apiVersion: v1
+kind: Pod
+metadata:
+  name: k3s
+  namespace: default
+spec:
+  nodeName: k3d-ms-worker-0
+  containers:
+    - name: k3s
+      image: https//docker.io/rancher/k3s:v1.27.4-k3s1
+      resources:
+        limits:
+          cpu: "0.5"
+
